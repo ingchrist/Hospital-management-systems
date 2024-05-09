@@ -15,7 +15,7 @@ app.use("/api/users", usersRoutes);
 
 // Connecting to MongoDB using Mongoose
 mongoose
-  .connect("mongodb://localhost:27017", { dbName: "demo_db" })
+  .connect(process.env.DB_URL, { dbName: "demo_db" })
   .then(() => {
     console.log("connected to DB successfully");
     
