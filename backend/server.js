@@ -21,11 +21,11 @@ app.use("/api/posts", postsRoutes);
 app.use("/api/users", usersRoutes);
 
 //use the client app
-app.use(express.static(path.join(__dirname, '/client/dist')))
+app.use(express.static(path.join(__dirname, '/frontend/dist')))
 
 //render client for any path
 app.get('*', (req, res) => 
-  res.sendFile(path.join(__dirname, '/client/dist/index.html'))
+  res.sendFile(path.join(__dirname, '/frontend/dist/index.html'))
 );
 
 // Connecting to MongoDB using Mongoose
