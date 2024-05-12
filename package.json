@@ -5,12 +5,12 @@
   "scripts": {
     "install-server": "cd backend && npm install",
     "start-server": "cd backend && npm run dev",
-    "install-client": "cd frontend && npm install",
-    "build-client": "cd frontend && npm run build",
-    "start-client": "cd frontend && npm run dev"
+    "build-client": "npm install --prefix client && npm run build --prefix client",
+    "start-client": "npm run dev --prefix client"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": ""
 }
+
