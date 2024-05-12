@@ -1,3 +1,4 @@
+import path from "path";
 import express from "express";
 import { dbConnection } from "./database/dbConnection.js";
 import { config } from "dotenv";
@@ -9,10 +10,7 @@ import messageRouter from "./router/messageRouter.js";
 import userRouter from "./router/userRouter.js";
 import appointmentRouter from "./router/appointmentRouter.js";
 
-// middleware
-const corsOptions = {
-    origin: "https://frontend-of-hospitail.netlify.app/" // frontend URI (ReactJS)
-}
+const __dirname = path.resolve();
 
 const app = express();
 config({ path: "./config.env" });
@@ -38,6 +36,12 @@ app.use(
 app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/appointment", appointmentRouter);
+
+app.use(express.static(path.join(__dirname, "/client/dist")));
+
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 
 dbConnection();
 
