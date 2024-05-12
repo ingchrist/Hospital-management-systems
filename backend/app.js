@@ -9,6 +9,11 @@ import messageRouter from "./router/messageRouter.js";
 import userRouter from "./router/userRouter.js";
 import appointmentRouter from "./router/appointmentRouter.js";
 
+// middleware
+const corsOptions = {
+    origin: "http://localhost:3000" // frontend URI (ReactJS)
+}
+
 const app = express();
 config({ path: "./config.env" });
 
@@ -38,3 +43,4 @@ dbConnection();
 
 app.use(errorMiddleware);
 export default app;
+
