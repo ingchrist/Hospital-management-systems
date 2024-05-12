@@ -11,7 +11,7 @@ import appointmentRouter from "./router/appointmentRouter.js";
 
 // middleware
 const corsOptions = {
-    origin: "http://localhost:3000" // frontend URI (ReactJS)
+    origin: "https://frontend-of-hospitail.netlify.app/" // frontend URI (ReactJS)
 }
 
 const app = express();
